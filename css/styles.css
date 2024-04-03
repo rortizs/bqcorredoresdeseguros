@@ -1,0 +1,666 @@
+@font-face {
+    font-family: 'Galano-Grotesque-Bold';
+    src: url('../font/Galano-Grotesque-Bold.woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Galano-Grotesque-Light';
+    src: url('../font/Galano-Grotesque-Light.woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Galano-Grotesque-Midium';
+    src: url('../font/Galano-Grotesque-Medium.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Galano-Grotesque-Midium' !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+[data-ca3_icon]::before {
+    font-weight: normal;
+    content: attr(data-ca3_icon);
+}
+
+.ca3-scroll-down-arrow {
+    background-image: url("../img/mouse.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ca3-scroll-down-link {
+    cursor: pointer;
+    height: 60px;
+    width: 80px;
+    margin: 0px 0 0 -40px;
+    line-height: 60px;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    color: #FFF;
+    text-align: center;
+    font-size: 70px;
+    z-index: 100;
+    text-decoration: none;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+    -webkit-animation: ca3_fade_move_down 2s ease-in-out infinite;
+    -moz-animation: ca3_fade_move_down 2s ease-in-out infinite;
+    animation: ca3_fade_move_down 2s ease-in-out infinite;
+}
+
+
+/*animated scroll arrow animation*/
+
+@-webkit-keyframes ca3_fade_move_down {
+    0% {
+        -webkit-transform: translate(0, -20px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translate(0, 20px);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes ca3_fade_move_down {
+    0% {
+        -moz-transform: translate(0, -20px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -moz-transform: translate(0, 20px);
+        opacity: 0;
+    }
+}
+
+@keyframes ca3_fade_move_down {
+    0% {
+        transform: translate(0, -20px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 20px);
+        opacity: 0;
+    }
+}
+
+.bold-f {
+    font-family: 'Galano-Grotesque-Bold' !important;
+}
+
+.midium-f {
+    font-family: 'Galano-Grotesque-Midium' !important;
+}
+
+.header {
+    padding: 33px 33px;
+    background: #eaeaea;
+    color: #f1f1f1;
+    z-index: 100000;
+}
+
+.header p {
+    font-size: 13px;
+    color: #284e76;
+    margin: 0;
+    margin-bottom: 0;
+}
+
+
+/* Page content */
+
+.content {
+    padding: 16px;
+}
+
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+
+.sticky+.content {
+    padding-top: 102px;
+}
+
+.logo {
+    width: 55%;
+}
+
+.center-parent {
+    display: table;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+.center-child {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.alto {
+    height: 100%;
+}
+
+#first {
+    height: 100vh;
+    background-image: url("../img/seguros.jpg");
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+#second {
+    height: 100vh;
+    display: flex;
+    background-color: #eaeaea;
+}
+
+.middle-div {
+    padding-top: 40%;
+}
+
+.middle-div h1 {
+    font-size: 1.7rem;
+    line-height: 1.0 !important;
+}
+
+.middle-div h2 {
+    font-size: 2.2rem;
+    line-height: 1.0 !important;
+    font-weight: 800 !important;
+}
+
+.btn-rojo {
+    background-color: #fb3034 !important;
+    border-color: #fb3034 !important;
+    padding: .695rem 2.075rem !important;
+    border-radius: 10px !important;
+    font-weight: 800 !important;
+    font-size: 1.1rem !important;
+}
+
+#fondo-2 {
+    background-image: url("../img/corredores_de_seguros.jpg");
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+#fondo-3 {
+    background-color: #eaeaea;
+    background: #eaeaea;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.pr {
+    font-size: 1.2rem !important;
+}
+
+.non-pr {
+    padding-right: 0px !important;
+}
+
+.middle-div2 {
+    padding-top: 20%;
+}
+
+.fifty {
+    height: 100%;
+    width: 50%;
+    display: inline;
+}
+
+#third {
+    height: 85vh;
+    background-color: #dcdedf;
+}
+
+.title {
+    font-size: 3.0rem;
+    font-weight: 700;
+}
+
+.space {
+    padding-top: 6%;
+}
+
+.center {
+    text-align: center;
+}
+
+.ti {
+    font-size: 1.2rem !important;
+}
+
+#four {
+    height: 110vh;
+    background-color: #043484;
+}
+
+.big {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.0;
+}
+
+.white {
+    color: white;
+}
+
+.back-white {
+    background-color: white;
+}
+
+.radius {
+    border-radius: 18px;
+}
+
+.title-blue {
+    color: #003779;
+    font-size: 1.5rem;
+    padding-top: 5%;
+    font-weight: 800;
+}
+
+ul li::before {
+    content: "\2022";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: red;
+    /* Change the color */
+    font-weight: bold;
+    /* If you want it to be bold */
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1em;
+    /* Also needed for space (tweak if needed) */
+    margin-left: -1em;
+    /* Also needed for space (tweak if needed) */
+}
+
+ul {
+    list-style: none;
+    /* Remove default bullets */
+}
+
+.mini-space {
+    padding-top: 3%;
+}
+
+#five {
+    height: 115vh;
+    background-color: #ededed;
+}
+
+.blue {
+    color: #003a84;
+}
+
+.input-h {
+    height: calc(2.2em + .75rem + 2px) !important;
+}
+
+.sub-btn {
+    width: 100% !important;
+    color: #fff !important;
+    background-color: #fb3034 !important;
+    border-color: #fb3034 !important;
+    border-radius: 20px !important;
+    font-weight: 800 !important;
+}
+
+#six {
+    height: 50vh;
+    background-image: url("../img/seguro_de_vida.png");
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+#seven {
+    height: 50vh;
+    background-color: white;
+}
+
+.aseguradora {
+    width: 100%;
+}
+
+.midium {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.0;
+}
+
+.space-logo {
+    padding-top: 1%;
+}
+
+.right {
+    text-align: right;
+}
+
+.footer-logo {
+    width: 60%;
+}
+
+#footer {
+    height: 30vh;
+    background-color: #ededed;
+}
+
+.padd-footer {
+    padding-top: 4%;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.mini-line {
+    line-height: 1;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.red {
+    color: #fb3034;
+}
+
+.valores {
+    color: #fb3034;
+    font-weight: 800;
+    font-size: 1.3em;
+}
+
+.social {
+    width: 40%;
+}
+
+.fb-r {
+    text-align: right;
+}
+
+.btn-menu {
+    background-color: #fb3034 !important;
+    border-color: #fb3034 !important;
+    padding: .295rem 0.195rem !important;
+    border-radius: 10px !important;
+    font-weight: 500 !important;
+    color: white !important;
+    font-size: 13px !important;
+}
+
+.change {
+    border: transparent !important;
+}
+
+.select {
+    color: #4c4c4c !important;
+}
+
+.conoce {
+    color: #4c4c4c !important;
+    font-size: 1.5rem !important;
+}
+
+.no-select {
+    color: #b4b4b4 !important;
+}
+
+.somos {
+    color: #585858;
+}
+
+.mm {
+    font-size: 1.1rem !important;
+}
+
+.x-space {
+    padding-bottom: 1.2vh;
+}
+
+.no-a {
+    color: black !important;
+}
+
+@media (max-width: 1024px) {
+    .big {
+        font-size: 4.0rem;
+    }
+    .midium {
+        font-size: 3.2rem;
+    }
+    .llogo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 813px) {
+    .big {
+        font-size: 3.0rem;
+    }
+    .midium {
+        font-size: 2.2rem;
+    }
+    .middle-div h2 {
+        font-size: 1.7rem;
+    }
+    .middle-div h1 {
+        font-size: 1.1rem;
+        line-height: 1.0 !important;
+    }
+    .conoce {
+        font-size: 1.1rem !important;
+    }
+    .somos {
+        font-size: 0.8rem !important;
+    }
+    .title {
+        font-size: 1.9rem;
+    }
+    .middle-div2 {
+        padding-top: 3%;
+    }
+    .mm {
+        font-size: 1rem;
+    }
+    .valores {
+        font-size: 0.6rem;
+    }
+    #second {
+        height: 130vh;
+    }
+    .btn-rojo {
+        background-color: #fb3034 !important;
+        border-color: #fb3034 !important;
+        padding: .695rem 1.575rem !important;
+        border-radius: 10px !important;
+        font-weight: 800 !important;
+        font-size: 1.0rem !important;
+    }
+    .big {
+        font-size: 2.1rem;
+    }
+    .ti {
+        font-size: 1.2rem;
+    }
+    .title-blue {
+        font-size: 1.1rem;
+    }
+    .lista li {
+        font-size: 0.6rem;
+    }
+    #four {
+        height: 150vh;
+    }
+    .pr {
+        font-size: 1.3rem;
+    }
+    .input-h {
+        height: calc(1.2em + .75rem + 2px) !important;
+    }
+    #five {
+        height: 175vh;
+    }
+    .llogo {
+        width: 100%;
+    }
+    #seven {
+        height: 80vh;
+    }
+    .mini-line {
+        font-size: 0.8rem;
+    }
+    .dirr {
+        font-size: 0.8rem;
+    }
+    #footer {
+        height: 47vh;
+    }
+}
+
+@media (max-width: 414px) {
+    #first {
+        height: 60vh;
+    }
+    #second {
+        height: 65vh;
+    }
+    .big {
+        font-size: 2.0rem;
+    }
+    .midium {
+        font-size: 1.2rem;
+    }
+    .middle-div h2 {
+        font-size: 1.6rem;
+    }
+    .middle-div h1 {
+        font-size: 0.8rem;
+        line-height: 1.3!important;
+    }
+    .conoce {
+        font-size: 0.7rem !important;
+    }
+    .somos {
+        font-size: 0.5rem !important;
+    }
+    .title {
+        font-size: 1.7rem;
+    }
+    .middle-div2 {
+        padding-top: 2%;
+    }
+    .mm {
+        font-size: 1rem;
+    }
+    .valores {
+        font-size: 0.7rem;
+    }
+    .btn-rojo {
+        background-color: #fb3034 !important;
+        border-color: #fb3034 !important;
+        padding: .695rem 1.575rem !important;
+        border-radius: 10px !important;
+        font-weight: 800 !important;
+        font-size: 1.0rem !important;
+    }
+    .big {
+        font-size: 1.7rem;
+    }
+    .ti {
+        font-size: 0.9rem;
+    }
+    .title-blue {
+        font-size: 0.7rem;
+    }
+    .lista li {
+        font-size: 0.4rem;
+    }
+    #four {
+        height: 90vh;
+    }
+    .pr {
+        font-size: 0.6rem;
+    }
+    .input-h {
+        height: calc(1.2em + .75rem + 2px) !important;
+    }
+    #five {
+        height: 100vh;
+    }
+    .llogo {
+        width: 100%;
+    }
+    #seven {
+        height: 35vh;
+    }
+    .mini-line {
+        font-size: 0.8rem;
+    }
+    .dirr {
+        font-size: 0.8rem;
+    }
+    #footer {
+        height: 39vh;
+    }
+    #fondo-2 {
+        height: 0%;
+        width: 0%;
+    }
+    .todo {
+        width: 100%;
+    }
+    .fifty {
+        height: 100%;
+        width: 100%;
+        display: inline;
+    }
+    .logos {
+        width: 30% !important;
+    }
+    #third {
+        height: 140vh;
+    }
+    .min {
+        padding-top: 4%;
+    }
+    .radius {
+        border-radius: 0px;
+    }
+    .ca3-scroll-down-arrow {
+        visibility: hidden;
+    }
+}
