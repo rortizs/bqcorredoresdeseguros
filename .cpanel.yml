@@ -1,0 +1,22 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/qbocorredoresdes
+    - /bin/mkdir -p $DEPLOYPATH/laravel
+    - /bin/cp -R .editorconfig .env.example .gitattributes .gitignore artisan composer.json composer.lock package.json phpunit.xml vite.config.js $DEPLOYPATH/laravel/
+    - /bin/cp -R app bootstrap config database openspec resources routes storage tests $DEPLOYPATH/laravel/
+    - /bin/cp -R public/* $DEPLOYPATH/public_html/
+    - /bin/cp public/.htaccess $DEPLOYPATH/public_html/.htaccess
+    - >-
+      /bin/sed -i
+      "s|__DIR__.'/../vendor|__DIR__.'/../laravel/vendor|g"
+      $DEPLOYPATH/public_html/index.php
+    - >-
+      /bin/sed -i
+      "s|__DIR__.'/../bootstrap|__DIR__.'/../laravel/bootstrap|g"
+      $DEPLOYPATH/public_html/index.php
+    - cd $DEPLOYPATH/laravel && /usr/local/bin/php -d memory_limit=512M /usr/local/bin/composer install --no-dev --optimize-autoloader 2>&1 || true
+    - cd $DEPLOYPATH/laravel && /usr/local/bin/php artisan config:cache 2>&1 || true
+    - cd $DEPLOYPATH/laravel && /usr/local/bin/php artisan route:cache 2>&1 || true
+    - cd $DEPLOYPATH/laravel && /usr/local/bin/php artisan view:cache 2>&1 || true
+    - cd $DEPLOYPATH/laravel && /usr/local/bin/php artisan migrate --force 2>&1 || true
