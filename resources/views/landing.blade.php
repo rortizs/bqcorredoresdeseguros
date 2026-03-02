@@ -12,33 +12,33 @@
     <meta property="og:image" content="https://imageupload.io/E7Z9cRXzTX.i">
     <meta property="og:url" content="http://euro-travel-example.com/index.htm">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBHY47M8BH"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-XBHY47M8BH');
     </script>
 
 </head>
 
-<body onload="contactoEnviado()">
-    <script src="js/varios.js"></script>
+<body>
+    <script src="{{ asset('js/varios.js') }}"></script>
     <div class="header" id="myHeader">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-3">
 
-                    <img class="logo" src="img/QBO-LOGO.png" alt="qbo-aseguradora">
+                    <img class="logo" src="{{ asset('img/QBO-LOGO.png') }}" alt="qbo-aseguradora">
 
                 </div>
                 <div class="col-6">
@@ -68,7 +68,7 @@
                     <div class="row align-items-center alto">
                         <div class="col-3"></div>
                         <div class="col-5 fb-r">
-                            <a target="_blank" href="https://www.facebook.com/QBO-Corredores-de-Seguros-109258147660944"><img class="social" src="img/facebook_QBO.png" alt="facebook"></a>
+                            <a target="_blank" href="https://www.facebook.com/QBO-Corredores-de-Seguros-109258147660944"><img class="social" src="{{ asset('img/facebook_QBO.png') }}" alt="facebook"></a>
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
                 <div class="row alto">
                     <div class="col-md-1"></div>
                     <div class="col-md-8 alto ">
-                        <img src="img/QBO-LOGO.png" alt="aseguradora" width="35%">
+                        <img src="{{ asset('img/QBO-LOGO.png') }}" alt="aseguradora" width="35%">
                         <br><br>
                         <h1 class="conoce bold-f x-space">Conoce quiénes somos</h1>
 
@@ -149,27 +149,27 @@
         <div class="container space">
             <div class="row justify-content-center">
                 <div class="col-md-2 center">
-                    <img class="logos" src="img/QBO ICONOS-03.png" width="75%" alt="seguros">
+                    <img class="logos" src="{{ asset('img/QBO ICONOS-03.png') }}" width="75%" alt="seguros">
                     <br><br>
                     <p class="valores bold-f">Respeto</p>
                 </div>
                 <div class="col-md-2 center">
-                    <img class="logos" src="img/QBO ICONOS-04.png" width="75%" alt="seguros">
+                    <img class="logos" src="{{ asset('img/QBO ICONOS-04.png') }}" width="75%" alt="seguros">
                     <br><br>
                     <p class="valores bold-f">Responsabilidad</p>
                 </div>
                 <div class="col-md-2 center">
-                    <img class="logos" src="img/QBO ICONOS-05.png" width="75%" alt="aseguradora">
+                    <img class="logos" src="{{ asset('img/QBO ICONOS-05.png') }}" width="75%" alt="aseguradora">
                     <br><br>
                     <p class="valores bold-f">Integridad</p>
                 </div>
                 <div class="col-md-2 center">
-                    <img class="logos" src="img/QBO ICONOS-06.png" width="75%" alt="valores">
+                    <img class="logos" src="{{ asset('img/QBO ICONOS-06.png') }}" width="75%" alt="valores">
                     <br><br>
                     <p class="valores bold-f">Conciencia <br> social</p>
                 </div>
                 <div class="col-md-2 center">
-                    <img class="logos" src="img/QBO ICONOS-07.png" width="75%" alt="valores">
+                    <img class="logos" src="{{ asset('img/QBO ICONOS-07.png') }}" width="75%" alt="valores">
                     <br><br>
                     <p class="valores bold-f">Servicio</p>
                 </div>
@@ -230,24 +230,41 @@
                     <h2 class="big blue bold-f">¿Deseas más <br>información?</h2>
                     <h1 class="blue pr">Permítenos ahora conocerte a tí:</h1>
                     <br><br>
-                    <form id="contacto" class="needs-validation" action="save_form.php" method="post" novalidate>
+                    <form id="contacto" class="needs-validation" action="{{ route('contacto.store') }}" method="post" novalidate>
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control input-h" name="nombre" id="nombre" placeholder="Nombres">
+                            <input type="text" class="form-control input-h @error('nombre') is-invalid @enderror" name="nombre" id="nombre" placeholder="Nombres" value="{{ old('nombre') }}">
+                            @error('nombre')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control input-h" name="apellido" id="apellido" placeholder="Apellidos">
+                            <input type="text" class="form-control input-h @error('apellido') is-invalid @enderror" name="apellido" id="apellido" placeholder="Apellidos" value="{{ old('apellido') }}">
+                            @error('apellido')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control input-h" name="correo" id="correo" placeholder="Correo electrónico*" required>
-                            <div class="invalid-feedback">
-                                Por favor ingrese un correo electrónico valido.
-                            </div>
+                            <input type="email" class="form-control input-h @error('correo') is-invalid @enderror" name="correo" id="correo" placeholder="Correo electrónico*" required value="{{ old('correo') }}">
+                            @error('correo')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @else
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un correo electrónico valido.
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control input-h" name="telefono" id="telefono" placeholder="Teléfono">
+                            <input type="text" class="form-control input-h @error('telefono') is-invalid @enderror" name="telefono" id="telefono" placeholder="Teléfono" value="{{ old('telefono') }}">
+                            @error('telefono')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="comentario" name="comentario" rows="4" placeholder="Comentarios"></textarea>
+                            <textarea class="form-control @error('comentario') is-invalid @enderror" id="comentario" name="comentario" rows="4" placeholder="Comentarios">{{ old('comentario') }}</textarea>
+                            @error('comentario')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <input class="btn sub-btn bold-f" type="submit" name="submit" value="Enviar">
                     </form>
@@ -268,18 +285,18 @@
                 </div>
             </div>
             <div class="row align-items-center mini-space">
-                <div class="col center"><img class="llogo" src="img/LOGOS-05.jpg" alt="aseguradora"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-09.jpg" alt="gyt"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-10.jpg" alt="banco"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-04.jpg" alt="seguros"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-11.jpg" alt="el roble"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-05.jpg') }}" alt="aseguradora"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-09.jpg') }}" alt="gyt"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-10.jpg') }}" alt="banco"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-04.jpg') }}" alt="seguros"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-11.jpg') }}" alt="el roble"></div>
             </div>
             <div class="row align-items-center space-logo">
-                <div class="col center"><img class="llogo" src="img/LOGOS-06.jpg" alt="universales"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-03.jpg" alt="bam"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-08.jpg" alt="mapfre"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-07.jpg" alt="seguros"></div>
-                <div class="col center"><img class="llogo" src="img/LOGOS-02.jpg" alt="seguro"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-06.jpg') }}" alt="universales"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-03.jpg') }}" alt="bam"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-08.jpg') }}" alt="mapfre"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-07.jpg') }}" alt="seguros"></div>
+                <div class="col center"><img class="llogo" src="{{ asset('img/LOGOS-02.jpg') }}" alt="seguro"></div>
             </div>
         </div>
     </div>
@@ -326,7 +343,15 @@
             </div>
         </div>
     </div>
-    <script src="js/header.js"></script>
+    <script src="{{ asset('js/header.js') }}"></script>
+
+    @if(session('success'))
+    <script>
+        $(document).ready(function() {
+            $('#myModal').modal('show');
+        });
+    </script>
+    @endif
 
 </body>
 
