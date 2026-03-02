@@ -2,9 +2,15 @@
 deployment:
   tasks:
     - /bin/mkdir -p /home/qbocorredoresdes/laravel
-    - /bin/cp -R app bootstrap config database openspec resources routes storage tests /home/qbocorredoresdes/laravel/
+    - /bin/cp -R app bootstrap config database openspec resources routes storage tests vendor /home/qbocorredoresdes/laravel/
     - /bin/cp artisan composer.json composer.lock package.json phpunit.xml vite.config.js .editorconfig .env.example .gitattributes .gitignore /home/qbocorredoresdes/laravel/
+    - /bin/cp .env.production /home/qbocorredoresdes/laravel/.env
     - /bin/cp -R public/* /home/qbocorredoresdes/public_html/
     - /bin/cp public/.htaccess /home/qbocorredoresdes/public_html/.htaccess
     - /bin/sed -i "s|__DIR__.'/../vendor|__DIR__.'/../laravel/vendor|g" /home/qbocorredoresdes/public_html/index.php
     - /bin/sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/../laravel/bootstrap|g" /home/qbocorredoresdes/public_html/index.php
+    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan key:generate --force
+    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan config:cache
+    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan route:cache
+    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan view:cache
+    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan migrate --force
