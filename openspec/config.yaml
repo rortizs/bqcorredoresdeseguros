@@ -1,0 +1,41 @@
+schema: spec-driven
+
+context: |
+  Tech stack: PHP 8.4 vanilla → migrating to Laravel 12
+  Architecture: Single-page landing (HTML/CSS/JS + PHP form handler)
+  Database: MySQL (cPanel shared hosting, webline-servers.com)
+  Hosting: cPanel shared hosting (Apache, ProFTPD, PowerDNS)
+  Testing: None (no test infrastructure)
+  Style: No linter/formatter configured
+  Security: Site was compromised via SQL injection (XANTIBOT)
+  Domain: qbocorredoresdeseguros.com (Guatemala insurance broker)
+  Deployment: Manual upload to cPanel public_html
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Identify affected modules/packages
+    - MUST address all 8 vulnerabilities found in security audit
+  specs:
+    - Use Given/When/Then format for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+    - Include security requirements for every endpoint
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+    - Must be deployable to cPanel shared hosting
+  tasks:
+    - Group tasks by phase (infrastructure, implementation, testing)
+    - Use hierarchical numbering (1.1, 1.2, etc.)
+    - Keep tasks small enough to complete in one session
+  apply:
+    - Follow Laravel conventions and best practices
+    - Use Eloquent ORM exclusively (no raw SQL)
+    - Use .env for all credentials
+    - CSRF protection on all forms (Laravel built-in)
+  verify:
+    - Run tests if test infrastructure exists
+    - Compare implementation against every spec scenario
+    - Validate with nmap/nikto after deployment
+  archive:
+    - Warn before merging destructive deltas (large removals)
