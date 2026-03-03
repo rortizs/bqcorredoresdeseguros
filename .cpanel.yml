@@ -1,19 +1,16 @@
 ---
 deployment:
   tasks:
-    - /bin/mkdir -p /home/qbocorredoresdes/laravel
-    - /bin/cp -R app bootstrap config database openspec resources routes storage tests vendor /home/qbocorredoresdes/laravel/
-    - /bin/cp artisan composer.json composer.lock package.json phpunit.xml vite.config.js .editorconfig .env.example .gitattributes .gitignore /home/qbocorredoresdes/laravel/
-    - /bin/cp .env.production /home/qbocorredoresdes/laravel/.env
     - /bin/cp -R public/* /home/qbocorredoresdes/public_html/
     - /bin/cp public/.htaccess /home/qbocorredoresdes/public_html/.htaccess
-    - /bin/sed -i "s|__DIR__.'/../vendor|__DIR__.'/../laravel/vendor|g" /home/qbocorredoresdes/public_html/index.php
-    - /bin/sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/../laravel/bootstrap|g" /home/qbocorredoresdes/public_html/index.php
-    - /bin/chmod -R 775 /home/qbocorredoresdes/laravel/storage
-    - /bin/chmod -R 775 /home/qbocorredoresdes/laravel/bootstrap/cache
-    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/sessions
-    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/views
-    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/cache/data
-    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/logs
-    - /bin/rm -rf /home/qbocorredoresdes/laravel/storage/framework/views/*.php
-    - /bin/rm -rf /home/qbocorredoresdes/laravel/bootstrap/cache/*.php
+    - /bin/sed -i "s|__DIR__.'/../vendor|__DIR__.'/../repositories/bqcorredoresdeseguros/vendor|g" /home/qbocorredoresdes/public_html/index.php
+    - /bin/sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/../repositories/bqcorredoresdeseguros/bootstrap|g" /home/qbocorredoresdes/public_html/index.php
+    - /bin/cp .env.production /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/.env
+    - /bin/chmod -R 775 /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/storage
+    - /bin/chmod -R 775 /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/bootstrap/cache
+    - /bin/mkdir -p /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/storage/framework/sessions
+    - /bin/mkdir -p /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/storage/framework/views
+    - /bin/mkdir -p /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/storage/framework/cache/data
+    - /bin/mkdir -p /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/storage/logs
+    - /bin/rm -rf /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/storage/framework/views/*.php
+    - /bin/rm -rf /home/qbocorredoresdes/repositories/bqcorredoresdeseguros/bootstrap/cache/*.php
