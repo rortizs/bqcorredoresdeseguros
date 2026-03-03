@@ -9,8 +9,9 @@ deployment:
     - /bin/cp public/.htaccess /home/qbocorredoresdes/public_html/.htaccess
     - /bin/sed -i "s|__DIR__.'/../vendor|__DIR__.'/../laravel/vendor|g" /home/qbocorredoresdes/public_html/index.php
     - /bin/sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/../laravel/bootstrap|g" /home/qbocorredoresdes/public_html/index.php
-    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan key:generate --force
-    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan config:cache
-    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan route:cache
-    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan view:cache
-    - /usr/local/bin/php /home/qbocorredoresdes/laravel/artisan migrate --force
+    - /bin/chmod -R 775 /home/qbocorredoresdes/laravel/storage
+    - /bin/chmod -R 775 /home/qbocorredoresdes/laravel/bootstrap/cache
+    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/sessions
+    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/views
+    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/cache/data
+    - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/logs
