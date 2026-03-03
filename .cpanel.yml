@@ -15,3 +15,5 @@ deployment:
     - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/views
     - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/framework/cache/data
     - /bin/mkdir -p /home/qbocorredoresdes/laravel/storage/logs
+    - /bin/rm -rf /home/qbocorredoresdes/laravel/storage/framework/views/*.php
+    - /bin/rm -rf /home/qbocorredoresdes/laravel/bootstrap/cache/*.php
