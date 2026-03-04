@@ -320,7 +320,7 @@
 
                 </div>
                 <div class="col-md-4 align-self-end right ">
-                    <p class="dirr">Sitio web por <b>Bedtime Studio</b> </p>
+                    <p class="dirr"><b>Digicom</b></p>
                 </div>
             </div>
         </div>
